@@ -1,0 +1,754 @@
+# Instincts generated from https://github.com/Kimenzo/clawdbot
+# Generated: 2026-03-25T19:08:34.782Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: clawdbot-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, test, refactor
+
+## Evidence
+
+- 200 commits analyzed
+- Detected conventional commit pattern
+- Examples: fix: per-model cooldown scope, stepped backoff, and user-facing rate-limit message (#49834), test: fix windows tmp root assertions
+
+---
+id: clawdbot-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Commit Length
+
+## Action
+
+Write moderate-length commit messages (~55 characters)
+
+## Evidence
+
+- Average commit message length: 55 chars
+- Based on 200 commits
+
+---
+id: clawdbot-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Naming Files
+
+## Action
+
+Use kebab-case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: kebab-case
+
+---
+id: clawdbot-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: clawdbot-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: clawdbot-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: acp, agents, auto-reply, bindings, bootstrap
+
+---
+id: clawdbot-test-colocate
+trigger: "when writing tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Test Colocate
+
+## Action
+
+Place test file next to the source file (e.g., Button.test.tsx next to Button.tsx)
+
+## Evidence
+
+- Colocated test pattern detected
+- Tests live alongside source files
+
+---
+id: clawdbot-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.test.ts
+
+---
+id: clawdbot-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: clawdbot-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: vi.mock
+- Consistent across test files
+
+---
+id: clawdbot-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Test Types
+
+## Action
+
+Write unit, integration, e2e tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration, e2e
+- Coverage config: yes
+
+---
+id: clawdbot-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: extensions/feishu/src/*, src/plugins/*, extensions/minimax/*
+
+---
+id: clawdbot-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: src/**/*
+
+---
+id: clawdbot-workflow-feature-or-bugfix-with-tests-and-changelog
+trigger: "when doing feature or bugfix with tests and changelog"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Workflow Feature Or Bugfix With Tests And Changelog
+
+## Action
+
+Follow the feature-or-bugfix-with-tests-and-changelog workflow:
+1. Edit or add implementation files (e.g., src/ or extensions/)
+2. Edit or add corresponding test files (*.test.ts)
+3. Update CHANGELOG.md with a summary of the change
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~10x per month
+- Files: src/**/*.ts, src/**/*.test.ts, extensions/**/*.ts
+
+---
+id: clawdbot-workflow-plugin-or-extension-provider-addition-or-update
+trigger: "when doing plugin or extension provider addition or update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Workflow Plugin Or Extension Provider Addition Or Update
+
+## Action
+
+Follow the plugin-or-extension-provider-addition-or-update workflow:
+1. Edit or add provider implementation files in extensions/[provider]/
+2. Edit or add provider test files in extensions/[provider]/
+3. Update provider documentation in docs/providers/ or extensions/[provider]/README.md
+4. Update CHANGELOG.md
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: extensions/*/index.ts, extensions/*/*.ts, extensions/*/*.test.ts
+
+---
+id: clawdbot-workflow-release-preparation
+trigger: "when doing release preparation"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Workflow Release Preparation
+
+## Action
+
+Follow the release-preparation workflow:
+1. Update CHANGELOG.md with release notes
+2. Update version numbers in package.json and/or platform-specific config files
+3. Regenerate schema/config files (e.g., src/config/schema.base.generated.ts, docs/.generated/*)
+4. Update platform-specific version files (e.g., apps/ios/Config/Version.xcconfig, apps/macos/Sources/OpenClaw/Resources/Info.plist)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: CHANGELOG.md, package.json, src/config/schema.base.generated.ts
+
+---
+id: clawdbot-workflow-test-suite-consolidation-or-hardening
+trigger: "when doing test suite consolidation or hardening"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Workflow Test Suite Consolidation Or Hardening
+
+## Action
+
+Follow the test-suite-consolidation-or-hardening workflow:
+1. Edit or merge multiple *.test.ts files within a feature or extension
+2. Update or add test utility scripts or fixtures
+3. Sometimes update related documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: extensions/*/*.test.ts, src/**/*.test.ts, test/**/*.test.ts
+
+---
+id: clawdbot-workflow-refactor-extension-or-core-module
+trigger: "when doing refactor extension or core module"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/clawdbot
+---
+
+# Clawdbot Workflow Refactor Extension Or Core Module
+
+## Action
+
+Follow the refactor-extension-or-core-module workflow:
+1. Edit/refactor implementation files in src/ or extensions/
+2. Edit/update corresponding test files
+3. Sometimes update related types or helper files
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: extensions/*/*.ts, extensions/*/*.test.ts, src/**/*.ts
+
+---
+id: clawdbot-instinct-filename-kebab-case
+trigger: "When creating or renaming a file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Filename Kebab Case
+
+## Action
+
+Use kebab-case for file names
+
+## Evidence
+
+- Pattern in files: extensions/telegram/src/button-types.test.ts
+- src/plugins/*
+
+---
+id: clawdbot-instinct-function-camelCase
+trigger: "When naming a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Function CamelCase
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Naming convention in codeStyle
+- TypeScript codebase
+
+---
+id: clawdbot-instinct-class-PascalCase
+trigger: "When naming a class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Class PascalCase
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Naming convention in codeStyle
+- TypeScript codebase
+
+---
+id: clawdbot-instinct-constant-SCREAMING_SNAKE_CASE
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Constant SCREAMING_SNAKE_CASE
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Naming convention in codeStyle
+
+---
+id: clawdbot-instinct-import-relative
+trigger: "When importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Import Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- importStyle: relative
+- Pattern in src/**/*.ts
+
+---
+id: clawdbot-instinct-export-named
+trigger: "When exporting from a module"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Export Named
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- exportStyle: named
+- Pattern in src/**/*.ts
+
+---
+id: clawdbot-instinct-test-file-pattern
+trigger: "When adding a test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Test File Pattern
+
+## Action
+
+Name test files with the pattern *.test.ts
+
+## Evidence
+
+- testing.filePattern: *.test.ts
+- Pattern in extensions/telegram/src/button-types.test.ts
+
+---
+id: clawdbot-instinct-use-vitest
+trigger: "When writing or running tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Use Vitest
+
+## Action
+
+Use the vitest testing framework
+
+## Evidence
+
+- testing.framework: vitest
+- vitest.config.ts present
+
+---
+id: clawdbot-instinct-mock-vi-mock
+trigger: "When mocking dependencies in tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Mock Vi Mock
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- testing.mockingStyle: vi.mock
+
+---
+id: clawdbot-instinct-colocate-tests
+trigger: "When adding tests for a module"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Colocate Tests
+
+## Action
+
+Colocate test files next to the implementation
+
+## Evidence
+
+- architecture.testLocation: colocated
+- Pattern in extensions/telegram/src/group-access.base-access.test.ts
+
+---
+id: clawdbot-instinct-commit-conventional
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Commit Conventional
+
+## Action
+
+Use conventional commit prefixes (fix, test, refactor, etc.)
+
+## Evidence
+
+- commits.type: conventional
+- Examples: fix: per-model cooldown scope, test: fix windows tmp root assertions
+
+---
+id: clawdbot-instinct-commit-scope
+trigger: "When writing a commit message for a specific area"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Commit Scope
+
+## Action
+
+Include an optional scope in parentheses after the prefix (e.g., fix(compaction): ...)
+
+## Evidence
+
+- Example: fix(compaction): surface safeguard cancel reasons
+- commits.examples
+
+---
+id: clawdbot-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Commit Length
+
+## Action
+
+Keep the commit message concise (around 55 characters on average)
+
+## Evidence
+
+- commits.averageLength: 55
+
+---
+id: clawdbot-instinct-feature-or-bugfix-workflow
+trigger: "When adding a new feature or fixing a bug"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Feature Or Bugfix Workflow
+
+## Action
+
+Edit/add implementation files, edit/add corresponding test files, and update CHANGELOG.md
+
+## Evidence
+
+- Workflow: feature-or-bugfix-with-tests-and-changelog
+- Seen in commit/test/changelog sequences
+
+---
+id: clawdbot-instinct-plugin-provider-workflow
+trigger: "When adding or updating a provider in an extension"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Plugin Provider Workflow
+
+## Action
+
+Edit/add provider implementation and test files, update provider documentation, and update CHANGELOG.md
+
+## Evidence
+
+- Workflow: plugin-or-extension-provider-addition-or-update
+- Pattern in extensions/*/index.ts, docs/providers/*.md
+
+---
+id: clawdbot-instinct-release-preparation-workflow
+trigger: "When preparing for a new release"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Release Preparation Workflow
+
+## Action
+
+Update CHANGELOG.md, update version numbers, regenerate schema/config files, and update platform-specific version files
+
+## Evidence
+
+- Workflow: release-preparation
+- Pattern in package.json, CHANGELOG.md, src/config/schema.base.generated.ts
+
+---
+id: clawdbot-instinct-test-suite-consolidation-workflow
+trigger: "When improving or consolidating test coverage or reliability"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Test Suite Consolidation Workflow
+
+## Action
+
+Edit/merge *.test.ts files, update/add test utility scripts or fixtures, and sometimes update related documentation
+
+## Evidence
+
+- Workflow: test-suite-consolidation-or-hardening
+- Pattern in extensions/*/*.test.ts, scripts/test-*.mjs
+
+---
+id: clawdbot-instinct-refactor-module-workflow
+trigger: "When refactoring code in an extension or core module"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: Kimenzo/clawdbot
+---
+
+# Clawdbot Instinct Refactor Module Workflow
+
+## Action
+
+Edit/refactor implementation files, update corresponding test files, and sometimes update related types or helper files
+
+## Evidence
+
+- Workflow: refactor-extension-or-core-module
+- Pattern in src/**/*.ts, extensions/*/*.ts
+
